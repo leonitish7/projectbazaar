@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+}
+
+:root {
+  /* Base styles - elegant monochromatic palette with blue accents */
+  --radius: 0.5rem;
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+
+  /* Primary - rich deep blue */
+  --primary: oklch(0.48 0.16 255);
+  --primary-foreground: oklch(1 0 0);
+
+  /* Secondary - soft gray */
+  --secondary: oklch(0.92 0.01 0);
+  --secondary-foreground: oklch(0.15 0 0);
+
+  /* Accent - lighter blue */
+  --accent: oklch(0.65 0.12 255);
+  --accent-foreground: oklch(1 0 0);
+
+  /* Supporting colors */
+  --muted: oklch(0.97 0.01 0);
+  --muted-foreground: oklch(0.45 0.02 0);
+  --destructive: oklch(0.65 0.18 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.90 0.01 0);
+  --input: oklch(0.90 0.01 0);
+  --ring: oklch(0.65 0.12 255);
+  --cart-bubble: oklch(0.48 0.16 255);
+
+  /* UI effect variables - elegant and refined */
+  --card-shadow: 0 4px 20px -8px rgba(0, 0, 0, 0.06), 0 2px 6px -2px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 10px 30px -8px rgba(0, 0, 0, 0.1), 0 4px 10px -3px rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --background: oklch(0.10 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.15 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.15 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+
+  /* Primary - vibrant blue for dark mode */
+  --primary: oklch(0.65 0.18 255);
+  --primary-foreground: oklch(0.05 0 0);
+
+  /* Secondary - darker gray */
+  --secondary: oklch(0.25 0.01 0);
+  --secondary-foreground: oklch(0.98 0 0);
+
+  /* Accent - electric blue for dark mode */
+  --accent: oklch(0.75 0.15 255);
+  --accent-foreground: oklch(0.05 0 0);
+
+  /* Supporting colors for dark mode */
+  --muted: oklch(0.22 0.01 0);
+  --muted-foreground: oklch(0.75 0.01 0);
+  --destructive: oklch(0.68 0.18 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.28 0.01 0);
+  --input: oklch(0.28 0.01 0);
+  --ring: oklch(0.65 0.18 255);
+  --cart-bubble: oklch(0.65 0.18 255);
+
+  /* UI effect variables - dark mode */
+  --card-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.35), 0 2px 8px -2px rgba(0, 0, 0, 0.26);
+  --card-shadow-hover: 0 12px 28px -6px rgba(0, 0, 0, 0.42), 0 4px 12px -4px rgba(0, 0, 0, 0.32);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "ss03";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+
+  /* Refined animations */
+  .fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Card effects - elegant and sophisticated */
+  .card-minimal {
+    @apply transition-all duration-300 rounded-lg bg-card border border-border/50;
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-minimal:hover {
+    @apply border-primary/20;
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  /* Button styles - refined and elegant */
+  .btn-minimal {
+    @apply bg-primary text-primary-foreground rounded-lg px-5 py-2.5 transition-all duration-300 hover:brightness-105 active:brightness-95 shadow-sm;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-border rounded-lg px-5 py-2.5 transition-all duration-300 hover:border-primary hover:text-primary active:bg-primary/5 shadow-sm;
+  }
+
+  /* Glass effect */
+  .glass-effect {
+    @apply bg-white/90 backdrop-blur-md border border-white/20 shadow-md;
+  }
+
+  .glass-effect-dark {
+    @apply bg-black/70 backdrop-blur-md border border-white/10 shadow-md;
+  }
+
+  /* Layout utilities */
+  .content-container {
+    @apply w-full max-w-6xl mx-auto px-5 sm:px-8;
+  }
+
+  .section-y {
+    @apply py-12 md:py-20;
+  }
+
+  /* Image effects - elegant */
+  .img-hover {
+    @apply overflow-hidden rounded-lg border border-border/50;
+  }
+
+  .img-hover img {
+    @apply transition-all duration-500;
+  }
+
+  .img-hover:hover img {
+    transform: scale(1.03);
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+  }
+
+  /* Blue highlight effect */
+  .blue-highlight {
+    @apply border-l-4 border-primary pl-3 py-1;
+  }
+
+  /* Elegant divider */
+  .elegant-divider {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-8;
+  }
+
+  /* Clean subtle background patterns */
+  .bg-pattern-dots {
+    background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .bg-pattern-grid {
+    background-image:
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Enhanced animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simple grid layouts */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--min-column-size, 18rem)), 1fr));
+  gap: var(--grid-gap, 1.5rem);
+}
