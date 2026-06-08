@@ -319,21 +319,21 @@ export default function Home() {
           >
             {[
               {
-                name: "Satyam Kharwar",
+                name: "Shivender Singh",
                 role: "Computer Science Student",
                 quote: "The web development project I purchased saved me countless hours of work. The code was well-documented and easy to understand.",
                 rating: 5,
                 delay: 0
               },
               {
-                name: "Nikhil Kumar",
+                name: "Nitish Kumar",
                 role: "Project Manager",
                 quote: "I used the management dashboard for my team's project tracking. The customization option allowed me to tailor it perfectly to our needs.",
                 rating: 4,
                 delay: 0.2
               },
               {
-                name: "Priya Sharma",
+                name: "Chahat Sharma",
                 role: "Engineering Professional",
                 quote: "The engineering calculation tool was exactly what I needed for my work. The support team was also very helpful with my questions.",
                 rating: 5,

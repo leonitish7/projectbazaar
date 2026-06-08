@@ -462,7 +462,7 @@ export default function AdminCustomRequests() {
             },
             {
                 _id: '4',
-                name: 'Priya Sharma',
+                name: 'Chahat Sharma',
                 email: 'priya.s@example.com',
                 phone: '+91 9517538642',
                 projectType: 'Desktop Application',

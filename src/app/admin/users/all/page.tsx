@@ -83,7 +83,7 @@ const users = [
   },
   { 
     id: 4, 
-    name: "Priya Sharma", 
+    name: "Chahat Sharma", 
     email: "priya@example.com", 
     role: "Customer", 
     status: "Active", 

@@ -151,7 +151,7 @@ export default function AdminActivityPage() {
                 time: '2 hours ago',
                 date: '2025-04-20T08:12:00',
                 status: 'pending',
-                user: 'Priya Sharma',
+                user: 'Chahat Sharma',
                 userId: 'usr_123457',
                 email: 'priya.s@gmail.com',
                 ip: '122.163.75.88'

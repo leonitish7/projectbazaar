@@ -283,7 +283,7 @@ const SignupPage = () => {
                                         <Input
                                             id="name"
                                             name="name"
-                                            placeholder="Nikhil Kumar"
+                                            placeholder="Nitish Kumar"
                                             value={formData.name}
                                             onChange={handleChange}
                                             disabled={isLoading}
