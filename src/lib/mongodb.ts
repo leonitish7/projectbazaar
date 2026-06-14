@@ -12,20 +12,6 @@ declare global {
   var mongoose: MongooseCache | undefined;
 }
 
-// Try to get MongoDB URI from environment variables
-const MONGODB_URI = process.env.MONGODB_URI || '';
-
-// Check if MONGODB_URI is defined
-if (!MONGODB_URI) {
-  console.error('WARNING: MONGODB_URI environment variable is not defined');
-  // In production, we still want to fail to prevent security issues
-  if (process.env.NODE_ENV === 'production') {
-    throw new Error(
-      'Please define the MONGODB_URI environment variable in your Vercel project settings'
-    );
-  }
-}
-
 /**
  * Global is used here to maintain a cached connection across hot reloads
  * in development. This prevents connections growing exponentially
@@ -43,12 +29,21 @@ async function dbConnect() {
     return cached.conn;
   }
 
+  const mongoUri = process.env.MONGODB_URI;
+
+  if (!mongoUri) {
+    console.error('WARNING: MONGODB_URI environment variable is not defined');
+    throw new Error(
+      'Please define the MONGODB_URI environment variable in your Vercel project settings'
+    );
+  }
+
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(mongoUri, opts).then((mongoose) => {
       return mongoose.connection;
     });
   }

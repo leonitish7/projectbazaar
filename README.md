@@ -23,6 +23,16 @@ Follow these instructions to set up and run the project locally.
 * [Node.js](https://nodejs.org/) (v14 or above)
 * npm or yarn
 
+### Environment Variables
+
+Create a `.env.local` file for local development and set:
+
+```bash
+MONGODB_URI=your_mongodb_connection_string
+```
+
+For Vercel deployments, add the same `MONGODB_URI` value in the project settings under Environment Variables.
+
 ### Installation
 
 1. Clone the repository:
