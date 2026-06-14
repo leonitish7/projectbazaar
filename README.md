@@ -82,3 +82,7 @@ Contributions are what make the open-source community such an amazing place to l
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+## Deployment Note
+
+Redeploy from the latest `main` commit so Vercel does not reuse an older deployment snapshot.
