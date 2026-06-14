@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from '@/contexts/CartContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { AuthProvider } from '@/contexts/AuthContext';
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
                   {children}
                 </main>
                 <Footer />
+                <Analytics />
               </AuthProvider>
             </ThemeProvider>
           </CartProvider>
